@@ -31,13 +31,15 @@ echo "export PRYSM_PORT="25"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 
-# download binary
+**download binary**
+```
 cd $HOME
 rm -rf prysm
 git clone https://github.com/kleomedes/prysm prysm
 cd prysm
 git checkout v0.1.0-devnet
 make install
+```
 
 # config and init app
 prysmd config node tcp://localhost:${PRYSM_PORT}657
