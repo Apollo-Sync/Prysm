@@ -41,23 +41,29 @@ git checkout v0.1.0-devnet
 make install
 ```
 
-# config and init app
+**config and init app**
+```
 prysmd config node tcp://localhost:${PRYSM_PORT}657
 prysmd config keyring-backend os
 prysmd config chain-id prysm-devnet-1
 prysmd init "test" --chain-id prysm-devnet-1
+```
 
-# download genesis and addrbook
+**download genesis and addrbook**
+```
 wget -O $HOME/.prysm/config/genesis.json https://server-5.itrocket.net/testnet/prysm/genesis.json
 wget -O $HOME/.prysm/config/addrbook.json  https://server-5.itrocket.net/testnet/prysm/addrbook.json
+```
 
-# set seeds and peers
+**set seeds and peers**
+```
 SEEDS="1b5b6a532e24c91d1bc4491a6b989581f5314ea5@prysm-testnet-seed.itrocket.net:25656"
 PEERS="ff15df83487e4aa8d2819452063f336269958d09@prysm-testnet-peer.itrocket.net:25657,e1d4f82aa17c8cfae6e80117f39cf2e2a29eeb0b@37.27.112.131:10156,5f91fc0d6185fe29944bfa4698428f56cedbf0d2@152.53.66.0:25656,a53a6c4abbd4e4e212639dbff72e2c7295fd8cd8@213.199.43.242:29656,6616bf0bccdec74150ed492952879d394e8b4f22@62.171.161.196:17656,c8713da918b6c5ce36fc99b582c5eb9f9f3f2cd3@185.208.206.191:26656,729d9c4fe35efb9200b9775d2dfad0d5f7c7017b@77.237.244.73:29656,0b4b6be062055f913933597fe7d84c65286d444b@144.76.70.103:32656,5773b96f3a618bd1e5f18df04356ca44ee2cce0b@2.59.117.67:29656,f3dd019aafbee0483de1d5133f03e880d96cde6a@65.108.234.158:23656,cb36b0bf594bbb205827efd65fb2be0c82b4f854@176.9.126.78:20656"
 sed -i -e "/^\[p2p\]/,/^\[/{s/^[[:space:]]*seeds *=.*/seeds = \"$SEEDS\"/}" \
        -e "/^\[p2p\]/,/^\[/{s/^[[:space:]]*persistent_peers *=.*/persistent_peers = \"$PEERS\"/}" $HOME/.prysm/config/config.toml
+```
 
-# set custom ports in app.toml
+set custom ports in app.toml
 sed -i.bak -e "s%:1317%:${PRYSM_PORT}317%g;
 s%:8080%:${PRYSM_PORT}080%g;
 s%:9090%:${PRYSM_PORT}090%g;
