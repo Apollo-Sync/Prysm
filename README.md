@@ -82,10 +82,12 @@ s%^external_address = \"\"%external_address = \"$(wget -qO- eth0.me):${PRYSM_POR
 s%:26660%:${PRYSM_PORT}660%g" $HOME/.prysm/config/config.toml
 ```
 
-# config pruning
+**config pruning**
+```
 sed -i -e "s/^pruning *=.*/pruning = \"custom\"/" $HOME/.prysm/config/app.toml 
 sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"100\"/" $HOME/.prysm/config/app.toml
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"50\"/" $HOME/.prysm/config/app.toml
+```
 
 # set minimum gas price, enable prometheus and disable indexing
 sed -i 's|minimum-gas-prices =.*|minimum-gas-prices = "0.0uprysm"|g' $HOME/.prysm/config/app.toml
