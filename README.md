@@ -89,10 +89,12 @@ sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"100\"/" $HOME/.pr
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"50\"/" $HOME/.prysm/config/app.toml
 ```
 
-# set minimum gas price, enable prometheus and disable indexing
+**set minimum gas price, enable prometheus and disable indexing**
+```
 sed -i 's|minimum-gas-prices =.*|minimum-gas-prices = "0.0uprysm"|g' $HOME/.prysm/config/app.toml
 sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.prysm/config/config.toml
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.prysm/config/config.toml
+```
 
 # create service file
 sudo tee /etc/systemd/system/prysmd.service > /dev/null <<EOF
