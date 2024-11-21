@@ -96,7 +96,8 @@ sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.prysm/config/config.t
 sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.prysm/config/config.toml
 ```
 
-# create service file
+**create service file**
+```
 sudo tee /etc/systemd/system/prysmd.service > /dev/null <<EOF
 [Unit]
 Description=Prysm node
@@ -111,6 +112,7 @@ LimitNOFILE=65535
 [Install]
 WantedBy=multi-user.target
 EOF
+```
 
 # reset and download snapshot
 prysmd tendermint unsafe-reset-all --home $HOME/.prysm
