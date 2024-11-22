@@ -114,13 +114,15 @@ WantedBy=multi-user.target
 EOF
 ```
 
-# reset and download snapshot
+**reset and download snapshot**
+```
 prysmd tendermint unsafe-reset-all --home $HOME/.prysm
 if curl -s --head curl https://server-5.itrocket.net/testnet/prysm/prysm_2024-11-12_1829490_snap.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
   curl https://server-5.itrocket.net/testnet/prysm/prysm_2024-11-12_1829490_snap.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.prysm
     else
   echo "no snapshot found"
 fi
+```
 
 # enable and start service
 sudo systemctl daemon-reload
