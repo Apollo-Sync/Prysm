@@ -136,8 +136,11 @@ source <(curl -s https://itrocket.net/api/testnet/prysm/autoinstall/)
 ```
 
 Create wallet
-# to create a new wallet, use the following command. don’t forget to save the mnemonic
+**to create a new wallet, use the following command. don’t forget to save the mnemonic**
+```
 prysmd keys add $WALLET
+```
+
 
 # to restore exexuting wallet, use the following command
 prysmd keys add $WALLET --recover
