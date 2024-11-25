@@ -141,10 +141,10 @@ Create wallet
 prysmd keys add $WALLET
 ```
 
-
-# to restore exexuting wallet, use the following command
+**to restore exexuting wallet, use the following command**
+``
 prysmd keys add $WALLET --recover
-
+````
 # save wallet and validator address
 WALLET_ADDRESS=$(prysmd keys show $WALLET -a)
 VALOPER_ADDRESS=$(prysmd keys show $WALLET --bech val -a)
