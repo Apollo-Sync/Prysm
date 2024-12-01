@@ -207,12 +207,14 @@ echo "{\"pubkey\":{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"$(prysm
 }" > validator.json
 ```
 
-# Create a validator using the JSON configuration
+**Create a validator using the JSON configuration**
+```
 prysmd tx staking create-validator validator.json \
     --from $WALLET \
     --chain-id prysm-devnet-1 \
 	--gas auto --gas-adjustment 1.5
-	
+```
+
 Monitoring
 If you want to have set up a monitoring and alert system use our cosmos nodes monitoring guide with tenderduty
 
