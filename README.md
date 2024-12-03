@@ -228,10 +228,13 @@ sudo ufw allow ${PRYSM_PORT}656/tcp
 sudo ufw enable
 ```
 
-Delete node
+**Delete node**
+```
 sudo systemctl stop prysmd
 sudo systemctl disable prysmd
 sudo rm -rf /etc/systemd/system/prysmd.service
 sudo rm $(which prysmd)
 sudo rm -rf $HOME/.prysm
 sed -i "/PRYSM_/d" $HOME/.bash_profile
+```
+
